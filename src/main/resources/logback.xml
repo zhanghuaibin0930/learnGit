@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<configuration>
+
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出 -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>log/ai.pic.ds.manager.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>log/backup/ai.pic.ds.manager.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!-- 单个log文件大小 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最多保存7份日志文件 -->
+            <maxHistory>7</maxHistory>
+            <!-- 日志文件总大小不超过20G -->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志级别 -->
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="FILE-ERROR"/>-->
+    </root>
+
+    <logger name="com.example.demo" level="DEBUG" additivity="false">
+        <appender-ref ref="console" />
+        <!--<appender-ref ref="FILE-DEBUG"/>-->
+        <!--<appender-ref ref="FILE-TRACE"/>-->
+        <!--<appender-ref ref="FILE-INFO"/>-->
+        <!--<appender-ref ref="FILE-WARN"/>-->
+        <!--<appender-ref ref="FILE-ERROR"/>-->
+    </logger>
+</configuration>
