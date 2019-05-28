@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <style type="text/css">
+        .btn {
+            width: 55px;
+            height: 25px;
+            background-color: darkseagreen;
+            color: azure;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+<form action="/save">
+    <table cellspacing="0" style="text-align: center;border: 1px solid darkgray;box-shadow: 1px 1px 1px black;padding: 5px">
+        <tr>
+            <th colspan="2"><h5>添加图书</h5></th>
+        </tr>
+        <tr>
+            <td colspan="2"><hr></td>
+        </tr>
+        <tr>
+            <td>书名</td>
+            <td><input type="text" name="bname"></td>
+        </tr>
+        <tr>
+            <td>价格</td>
+            <td><input type="text" name="price"></td>
+        </tr>
+        <tr>
+            <td>作者</td>
+            <td><input type="text" name="author"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="添加" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="取消" class="btn"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
