@@ -16,4 +16,12 @@ public class BookService {
     public List<Book> getBookList() throws Exception{
         return bookRepository.findAll();
     }
+
+    public String saveBook(Book book) {
+        book.setBname(book.getBname());
+        book.setPrice(book.getPrice());
+        book.setAuthor(book.getAuthor());
+        bookRepository.save(book);
+        return "success";
+    }
 }

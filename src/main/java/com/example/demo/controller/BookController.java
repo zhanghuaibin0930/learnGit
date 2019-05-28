@@ -23,6 +23,16 @@ public class BookController {
     @Autowired
     BookService bookService;
 
+    /**
+     * 查询全部
+     * @return
+     * {
+     *       "_id": "5ce78d65865a000084005c90",
+     *       "bname": "大数据",
+     *       "price": 58,
+     *       "author": "John"
+     *     },
+     */
     @RequestMapping("/home")
     public String home(){
         return "home";
@@ -49,5 +59,29 @@ public class BookController {
     @RequestMapping("/showAll")
     public String showAll(){
         return "bookList";
+    }
+
+
+    @RequestMapping("/insertOne")
+    public String insertOne(){
+        return "insertForm";
+    }
+
+    @RequestMapping("/save")
+    @ResponseBody
+    public Response<String> saveBook(Book book){
+        LOGGER.info("插入一条图书信息");
+        Response response = new Response();
+        String msg = "";
+        try{
+            msg = bookService.saveBook(book);
+            response.setCode(200);
+            response.setPayload(msg);
+        }catch (Exception e){
+            response.setCode(500);
+            response.setDescription("插入数据失败");
+            LOGGER.error("插入失败",e);
+        }
+        return ResponseHelper.createSuccessResponse(msg);
     }
 }

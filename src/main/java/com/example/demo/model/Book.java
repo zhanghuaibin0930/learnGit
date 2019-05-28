@@ -18,4 +18,10 @@ public class Book {
     private String bname;
     private double price;
     private String author;
+
+    public Book(String bname,double price,String author){
+        this.bname = bname;
+        this.price = price;
+        this.author = author;
+    }
 }
