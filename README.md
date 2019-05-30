@@ -1,2 +1,2 @@
 # learnGit
-first Git. 
+Git 初试牛刀
